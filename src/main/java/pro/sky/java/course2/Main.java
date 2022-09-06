@@ -12,7 +12,7 @@ public class Main {
 
         stringList.add(3, "test6");
 
-        stringList.remove(1);
+        stringList.remove(3);
 
         System.out.println(Arrays.toString(stringList.toArray()));
 

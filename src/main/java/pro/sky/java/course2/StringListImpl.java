@@ -1,5 +1,8 @@
 package pro.sky.java.course2;
 
+import java.lang.constant.Constable;
+import java.util.Arrays;
+
 public class StringListImpl implements StringList {
 
     private static final int INITIAL_SIZE = 15;
@@ -13,7 +16,7 @@ public class StringListImpl implements StringList {
     }
 
     @Override
-    public Integer add(String item) {
+    public String add(String item) {
         return add(capacity, item);
     }
 
@@ -28,25 +31,25 @@ public class StringListImpl implements StringList {
         if (item == null) {
             throw new IllegalArgumentException("Нельзя добавить null");
         }
-        System.arraycopy(data, index, data, index + 1, capacity - index - 1);
+        System.arraycopy(data, index, data, index + 1, capacity - index);
         data[index] = item;
         capacity++;
         return item;
     }
 
     @Override
-    public Integer set(int index, Integer item) {
+    public Constable set(int index, Integer item) {
         if (index < 0 || index >= capacity) {
             throw new IllegalArgumentException("Индекс должен быть в границах [0, capacity]!");
         }
         if (item == null) {
             throw new IllegalArgumentException("Нельзя добавить null");
         }
-        return data[index] = item;
+        return data[index] = String.valueOf(item);
     }
 
     @Override
-    public Integer remove(String item) {
+    public String remove(String item) {
         int indexForRemoving = indexOf(item);
         if (indexForRemoving == -1) {
             throw new IllegalArgumentException("Нет такого элемента");
@@ -56,7 +59,7 @@ public class StringListImpl implements StringList {
     }
 
     @Override
-    public Integer remove(int index) {
+    public String remove(int index) {
         if (index < 0 || index > capacity) {
             throw new IllegalArgumentException("Индекс должен быть в границах [0, capacity)!");
         }
@@ -70,7 +73,7 @@ public class StringListImpl implements StringList {
     }
 
     @Override
-    public boolean contains(Integer item) {
+    public boolean contains(String item) {
         return indexOf(item) != -1;
     }
 
@@ -101,7 +104,7 @@ public class StringListImpl implements StringList {
     }
 
     @Override
-    public Integer get(int index) {
+    public String get(int index) {
         if (index < 0 || index >= capacity) {
             throw new IllegalArgumentException("Индекс должен быть в границах [0, capacity]!");
         }
@@ -133,9 +136,8 @@ public class StringListImpl implements StringList {
 
     @Override
     public void clear() {
-        for (int i = 0; i < capacity; i++) {
-            data[i] = null;
-        }
+        Arrays.fill(data,null);
+        capacity = 0;
     }
 
     @Override

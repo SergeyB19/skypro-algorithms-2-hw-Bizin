@@ -1,10 +1,12 @@
 package pro.sky.java.course2;
 
+import java.lang.constant.Constable;
+
 public interface StringList {
     // Добавление элемента.
     // Вернуть добавленный элемент
     // в качестве результата выполнения.
-    Integer add(String item);
+    String add(String item);
 
     // Добавление элемента
     // на определенную позицию списка.
@@ -22,23 +24,23 @@ public interface StringList {
     // если индекс больше
     // фактического количества элементов
     // или выходит за пределы массива.
-    Integer set(int index, Integer item);
+    Constable set(int index, Integer item);
 
     // Удаление элемента.
     // Вернуть удаленный элемент
     // или исключение, если подобный
     // элемент отсутствует в списке.
-    Integer remove(String item);
+    String remove(String item);
 
     // Удаление элемента по индексу.
     // Вернуть удаленный элемент
     // или исключение, если подобный
     // элемент отсутствует в списке.
-    Integer remove(int index);
+    String remove(int index);
 
     // Проверка на существование элемента.
     // Вернуть true/false;
-    boolean contains(Integer item);
+    boolean contains(String item);
 
     // Поиск элемента.
     // Вернуть индекс элемента
@@ -54,7 +56,7 @@ public interface StringList {
     // Вернуть элемент или исключение,
     // если выходит за рамки фактического
     // количества элементов.
-    Integer get(int index);
+    String get(int index);
 
     // Сравнить текущий список с другим.
     // Вернуть true/false или исключение,
